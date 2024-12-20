@@ -96,4 +96,33 @@ public class LinkedList {
         }
         return false;
     }
+
+    void deleteNode(int value) {
+        if (head == null) return;
+
+        // If the node to be deleted is the head
+        if (head.data == value) {
+            head = head.next;
+            return;
+        }
+
+        Node current = head;
+        while (current.next != null) {
+            if (current.next.data == value) {
+                current.next = current.next.next;
+                return;
+            }
+            current = current.next;
+        }
+    }
+    int size() {
+        int size = 0;
+        Node current = head;
+        while (current != null) {
+            size++;
+            current = current.next;
+        }
+        return size;
+    }
+
 }
